@@ -2,7 +2,8 @@ import time
 import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 
@@ -11,9 +12,14 @@ url = "https://hh.ru/vacancies/finansovyy_analitik"
 # Запуск браузера(открытие сайта)
 driver.get(url)
 
-time.sleep(3)
+wait = WebDriverWait(driver, 10)
 
-vacancies = driver.find_elements(By.CLASS_NAME, 'vacancy-card--z_UXteNo7bRGzxWVcL7y')
+try:
+    vacancies = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, 'vacancy-card--z_UXteNo7bRGzxWVcL7y')))
+except Exception as e:
+    print("Произошла ошибка при загрузке вакансий:", str(e))
+    driver.quit()
+    exit()
 
 parsed_data = []
 for vacancy in vacancies:
