@@ -1,13 +1,28 @@
+# Преобразование данных
 data = [
-
     ['100', '200', '300'],
-    ['400', '500', '600'],
-  ]
+    ['400', '500', '600']
+   ]
+# С сайта мы получаем именно списки.
+numbers = []
 
-nambers =[]
+for row in data:
+    for text in row:
+     number = int(text)
+     numbers.append(number)
 
-  for row in data:
-      for text in row:
-          nambers.append(text)
+print(numbers)
 
-  print(nambers)
+
+# Фильтрация данных
+# data =[
+#      [100, 200, 300],
+#      [400, 500, 600],
+#      [150, 160, 180]
+#  ]
+# list = []
+# for row in data:
+#     for item in row:
+#         if item > 190:
+#            list.append(item)
+# print(list)
