@@ -26,17 +26,19 @@ for vacancy in vacancies:
 
 
 
-    except :
+
+    except:
         print('Произошла ошибка при парсинге данных:')
         continue
 
     parsed_data.append([title, company, salary, link])
 
 driver.quit()
-
+# Запись данных в CSV файл
 with open("hh.csv", 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerows(["Название вакансии", "Компания", "Зарплата", "Ссылка на вакансию"])
         writer.writerows(parsed_data)
 
 
+print('Данные успешно записаны в CSV файл')
