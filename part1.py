@@ -37,10 +37,10 @@ for vacancy in vacancies:
 
     parsed_data.append([title, company, salary, link])
 
-    driver.quit()
-    with open ("hh.csv", 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerows(["Название вакансии", "Компания", "Зарплата", "Ссылка на вакансию"])
-        writer.writerows(parsed_data)
+driver.quit()
+with open ("hh.csv", 'w', newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+    writer.writerows(["Название вакансии", "Компания", "Зарплата", "Ссылка на вакансию"])
+    writer.writerows(parsed_data)
 
 
