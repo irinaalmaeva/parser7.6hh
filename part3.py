@@ -33,6 +33,8 @@ for vacancy in vacancies:
 
     parsed_data.append([title, company, salary, link])
 
+# Вызов driver.quit() должен быть за пределами цикла for, чтобы закрыть браузер только после того, как все данные будут собраны.
+
 driver.quit()
 # Запись данных в CSV файл
 with open("hh.csv", 'w', newline='', encoding='utf-8') as file:
